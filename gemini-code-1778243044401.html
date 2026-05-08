@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro rincón secreto</title>
+    <style>
+        /* Estilos para el formulario de entrada */
+        #login-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #ffe6e6; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; z-index: 1000;
+        }
+        .login-box { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
+        input { padding: 10px; border: 1px solid #ff4d4d; border-radius: 5px; margin-top: 10px; }
+        button { background: #ff4d4d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        
+        /* Contenido oculto inicialmente */
+        #main-content { display: none; text-align: center; font-family: sans-serif; background-color: #ffe6e6; min-height: 100vh; padding-top: 50px; }
+        .heart { color: #ff4d4d; font-size: 50px; animation: beat 1s infinite; }
+        @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="login-box">
+            <h2>🔒 Acceso Privado</h2>
+            <p>Introduce nuestra fecha especial (DDMMAAAA)</p>
+            <input type="password" id="password-input" placeholder="Contraseña...">
+            <button onclick="checkPassword()">Entrar</button>
+            <p id="error-msg" style="color: red; display: none;">Contraseña incorrecta, amor.</p>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="heart">❤️</div>
+        <h1>¡Hola de nuevo!</h1>
+        <p>Este es nuestro lugar secreto en el internet.</p>
+        <p>Solo nosotros sabemos cómo llegar aquí.</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const pass = document.getElementById('password-input').value;
+            // Cambia '1234' por la fecha de su aniversario o algo que solo ustedes sepan
+            if (pass === '1234') { 
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
